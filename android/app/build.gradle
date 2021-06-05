@@ -62,22 +62,22 @@ android {
             signingConfig signingConfigs.release
         }
     }
-//    flavorDimensions "distribute"
-//    productFlavors {
-//        appCenter {
-//            dimension "distribute"
-//        }
-//
-//        googlePlay {
-//            dimension "distribute"
-//        }
-//    }
-//
-//    // This is likely needed, see https://github.com/flutter/flutter/issues/58247
-//    lintOptions {
-//        disable 'InvalidPackage'
-//        checkReleaseBuilds false
-//    }
+    flavorDimensions "distribute"
+    productFlavors {
+        appCenter {
+            dimension "distribute"
+        }
+
+        googlePlay {
+            dimension "distribute"
+        }
+    }
+
+    // This is likely needed, see https://github.com/flutter/flutter/issues/58247
+    lintOptions {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false
+    }
 }
 
 flutter {
