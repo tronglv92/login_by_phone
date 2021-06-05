@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1000441992827",
+    "project_id": "verfy-number-mobile",
+    "storage_bucket": "verfy-number-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000441992827:android:10b42833bf3e621679b4de",
+        "android_client_info": {
+          "package_name": "com.example.login_by_phone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000441992827-ggirh72a6k9r9g86237gs72d4u3eoj94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.login_by_phone",
+            "certificate_hash": "2b62ff2e7b9e063934d1f9d9041ad0c12044ff41"
+          }
+        },
+        {
+          "client_id": "1000441992827-ncu9dqetb2s2lkarhoaf4v30d1mat81i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD2wPDk4vQhGOxzOu43Ws8bgNyiVIoTLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000441992827-ncu9dqetb2s2lkarhoaf4v30d1mat81i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1000441992827-ahqhavl5gqjc3q4v2is64g0bvkch3015.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.verifiMobileFirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

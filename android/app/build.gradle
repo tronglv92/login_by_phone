@@ -40,7 +40,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.verifi_mobile_firebase"
+        applicationId "com.example.login_by_phone"
         minSdkVersion 18
         targetSdkVersion 30
         multiDexEnabled true
@@ -62,6 +62,22 @@ android {
             signingConfig signingConfigs.release
         }
     }
+//    flavorDimensions "distribute"
+//    productFlavors {
+//        appCenter {
+//            dimension "distribute"
+//        }
+//
+//        googlePlay {
+//            dimension "distribute"
+//        }
+//    }
+//
+//    // This is likely needed, see https://github.com/flutter/flutter/issues/58247
+//    lintOptions {
+//        disable 'InvalidPackage'
+//        checkReleaseBuilds false
+//    }
 }
 
 flutter {

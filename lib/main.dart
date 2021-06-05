@@ -15,6 +15,12 @@ import 'my_app.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   AppConfig(env: Env.dev(), theme: AppTheme.origin());
+  // await AppCenter.startAsync(
+  //   appSecretAndroid: '9aa5db14-3a75-4f94-bc77-90d8d14e27cd',
+  //   appSecretIOS: '2da3d93f-6b3f-48f9-920f-2d63ae3cd25a',
+  //   enableDistribute: false,
+  // );
+  // await AppCenter.configureDistributeDebugAsync(enabled: false);
   await Firebase.initializeApp();
   // Initialize Crash report
   await FirebaseCrashlytics.instance

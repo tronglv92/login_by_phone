@@ -84,7 +84,11 @@ class AppRoute {
     switch (settings.name) {
       case routeRoot:
         return MaterialPageRoute<dynamic>(
-            settings: settings, builder: (_) => HomePage());
+            settings: settings,
+            builder: (_) => AppRoute.createProvider(
+                  (_) => LoginProvider(),
+              LoginPage(),
+            ));
 
       case routeLogin:
         return MaterialPageRoute<dynamic>(
