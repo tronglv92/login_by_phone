@@ -17,7 +17,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   AppConfig(env: Env.dev(), theme: AppTheme.origin());
   await AppCenter.startAsync(
-    appSecretAndroid: '9aa5db14-3a75-4f94-bc77-90d8d14e27cd',
+    appSecretAndroid: '3ec2780e-24f8-4cde-a043-04aa7fc155b1',
     appSecretIOS: '2da3d93f-6b3f-48f9-920f-2d63ae3cd25a',
     enableDistribute: false,
   );
