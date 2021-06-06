@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 #Place this script in project/ios/
+
+
+
 echo "Uninstalling all CocoaPods versions"
 sudo gem uninstall cocoapods --all --executables
 
@@ -12,7 +15,6 @@ sudo gem install cocoapods -v $COCOAPODS_VER
 set -e
 # debug log
 set -x
-pod setup
 
 cd ..
 git clone -b beta https://github.com/flutter/flutter.git
@@ -22,6 +24,12 @@ flutter channel stable
 flutter doctor
 flutter pub get
 
+cd ios
+
+pod setup
+
+
+
 echo "Installed flutter to `pwd`/flutter"
 
-#flutter build ios --release --no-codesign
+flutter build ios --release --no-codesign
