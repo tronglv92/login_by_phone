@@ -24,7 +24,7 @@ flutter channel stable
 flutter doctor
 flutter pub get
 
-cd ios
+#cd ios
 
 #pod setup
 
