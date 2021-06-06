@@ -3,13 +3,13 @@
 
 
 
-#echo "Uninstalling all CocoaPods versions"
-#sudo gem uninstall cocoapods --all --executables
-#
-#COCOAPODS_VER=`sed -n -e 's/^COCOAPODS: \([0-9.]*\)/\1/p' Podfile.lock`
-#
-#echo "Installing CocoaPods version $COCOAPODS_VER"
-#sudo gem install cocoapods -v $COCOAPODS_VER
+echo "Uninstalling all CocoaPods versions"
+sudo gem uninstall cocoapods --all --executables
+
+COCOAPODS_VER=`sed -n -e 's/^COCOAPODS: \([0-9.]*\)/\1/p' Podfile.lock`
+
+echo "Installing CocoaPods version $COCOAPODS_VER"
+sudo gem install cocoapods -v $COCOAPODS_VER
 
 # fail if any command fails
 set -e
@@ -24,12 +24,12 @@ flutter channel stable
 flutter doctor
 flutter pub get
 
-#cd ios
+cd ios
 
-#pod setup
+pod setup
 
-
+cd ..
 
 echo "Installed flutter to `pwd`/flutter"
 
-#flutter build ios --release --no-codesign
+flutter build ios --release --no-codesign
