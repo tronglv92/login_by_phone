@@ -46,6 +46,9 @@ if (keystorePropertiesFile.exists()) {
     else keystoreProperties.put('storePassword', storePasswordDefault)
     if (env['BITRISEIO_ANDROID_KEYSTORE_URL']) keystoreProperties.put('storeFile', env['BITRISEIO_ANDROID_KEYSTORE_URL'])
     else keystoreProperties.put('storeFile', storeFileDefault)
+
+
+    println "keystoreProperties['storeFile'] "+keystoreProperties['storeFile'];
 }
 
 
