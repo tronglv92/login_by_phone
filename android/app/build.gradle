@@ -21,16 +21,48 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+// Default debug keystore info
+def keyAliasDefault = 'androiddebugkey'
+def keyPasswordDefault = 'android'
+def storePasswordDefault = 'android'
+def storeFileDefault = '../keystores/debug.keystore'
+
+
+// Load a specific properties file to access the keystore if exists
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = file('../key.properties')
+if (keystorePropertiesFile.exists()) {
+    println "Apply key.properties file"
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+} else {
+    // Load keystore properties from environment or set their default values
+    println "key.properties file was not found. Use env or default value instead."
+    def env = System.getenv()
+    if (env['ANDROID_KEY_ALIAS']) keystoreProperties.put('keyAlias', env['ANDROID_KEY_ALIAS'])
+    else keystoreProperties.put('keyAlias', keyAliasDefault)
+    if (env['ANDROID_KEY_PASSWORD']) keystoreProperties.put('keyPassword', env['ANDROID_KEY_PASSWORD'])
+    else keystoreProperties.put('keyPassword', keyPasswordDefault)
+    if (env['ANDROID_STORE_PASSWORD']) keystoreProperties.put('storePassword', env['ANDROID_STORE_PASSWORD'])
+    else keystoreProperties.put('storePassword', storePasswordDefault)
+    if (env['ANDROID_STORE_FILE']) keystoreProperties.put('storeFile', env['ANDROID_STORE_FILE'])
+    else keystoreProperties.put('storeFile', storeFileDefault)
+}
+
+
+//def keystoreProperties = new Properties()
+//def keystorePropertiesFile = rootProject.file('../key.properties')
+//if (keystorePropertiesFile.exists()) {
+//    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//}
+
+
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
+
 android {
     compileSdkVersion 30
 
@@ -49,48 +81,65 @@ android {
         versionName flutterVersionName
     }
     signingConfigs {
+//        release {
+//            if (keystorePropertiesFile.exists())
+//            {
+//                keyAlias keystoreProperties['keyAlias']
+//                keyPassword keystoreProperties['keyPassword']
+//                storeFile rootProject.file("app/upload-keystore.jks")
+////                storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+//                storePassword keystoreProperties['storePassword']
+//            }
+//            else
+//            {
+//                storeFile rootProject.file("app/upload-keystore.jks")
+//                storePassword System.getenv("APPCENTER_KEYSTORE_PASSWORD")
+//                keyAlias System.getenv("APPCENTER_KEY_ALIAS")
+//                keyPassword System.getenv("APPCENTER_KEY_PASSWORD")
+//            }
+//
+//        }
+        debug {
+            keyAlias keyAliasDefault
+            keyPassword keyPasswordDefault
+            storePassword storePasswordDefault
+            storeFile file(storeFileDefault)
+        }
         release {
-            if (keystorePropertiesFile.exists())
-            {
-                keyAlias keystoreProperties['keyAlias']
-                keyPassword keystoreProperties['keyPassword']
-                storeFile rootProject.file("app/upload-keystore.jks")
-//                storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-                storePassword keystoreProperties['storePassword']
-            }
-            else
-            {
-                storeFile rootProject.file("app/upload-keystore.jks")
-                storePassword System.getenv("APPCENTER_KEYSTORE_PASSWORD")
-                keyAlias System.getenv("APPCENTER_KEY_ALIAS")
-                keyPassword System.getenv("APPCENTER_KEY_PASSWORD")
-            }
-
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storePassword keystoreProperties['storePassword']
+            storeFile file(keystoreProperties['storeFile'])
         }
     }
     buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
-    flavorDimensions "distribute"
-    productFlavors {
-        appCenter {
-            dimension "distribute"
-        }
-
-        googlePlay {
-            dimension "distribute"
-        }
-    }
-
-    // This is likely needed, see https://github.com/flutter/flutter/issues/58247
-    lintOptions {
-        disable 'InvalidPackage'
-        checkReleaseBuilds false
-    }
+//    flavorDimensions "distribute"
+//    productFlavors {
+//        appCenter {
+//            dimension "distribute"
+//        }
+//
+//        googlePlay {
+//            dimension "distribute"
+//        }
+//    }
+//
+//    // This is likely needed, see https://github.com/flutter/flutter/issues/58247
+//    lintOptions {
+//        disable 'InvalidPackage'
+//        checkReleaseBuilds false
+//    }
 }
 
 flutter {
