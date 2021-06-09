@@ -49,11 +49,13 @@ if (keystorePropertiesFile.exists()) {
 
     def keystorePropertiesFileUrl = file(env['HOME']+"/git/android/app/build.gradle");
     if (keystorePropertiesFileUrl.exists()) {
-        println "file /git/login_by_phone exist"
+
+
+        println "file /git/login_by_phone exist: "+env['HOME']+"/git/android/app/build.gradle"
 
     }
     else {
-        println "file /git/login_by_phone not exist"
+        println "file /git/login_by_phone not exist: "+env['HOME']+"/git/android/app/build.gradle"
     }
     println "keystoreProperties['storeFile'] "+keystoreProperties['storeFile'];
 }
