@@ -1,14 +1,4 @@
 PODS:
-  - AppCenter (3.3.4):
-    - AppCenter/Analytics (= 3.3.4)
-    - AppCenter/Crashes (= 3.3.4)
-  - AppCenter/Analytics (3.3.4):
-    - AppCenter/Core
-  - AppCenter/Core (3.3.4)
-  - AppCenter/Crashes (3.3.4):
-    - AppCenter/Core
-  - AppCenter/Distribute (3.3.4):
-    - AppCenter/Core
   - Firebase/Analytics (8.0.0):
     - Firebase/Core
   - Firebase/Auth (8.0.0):
@@ -90,10 +80,6 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (~> 1.2)
   - Flutter (1.0.0)
-  - flutter_appcenter_bundle (0.0.1):
-    - AppCenter (~> 3.3.4)
-    - AppCenter/Distribute (~> 3.3.4)
-    - Flutter
   - GoogleAppMeasurement (8.0.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.0.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -152,14 +138,12 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
   - Flutter (from `Flutter`)
-  - flutter_appcenter_bundle (from `.symlinks/plugins/flutter_appcenter_bundle/ios`)
   - phone_number (from `.symlinks/plugins/phone_number/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - sms_autofill (from `.symlinks/plugins/sms_autofill/ios`)
 
 SPEC REPOS:
   trunk:
-    - AppCenter
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -186,8 +170,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_crashlytics/ios"
   Flutter:
     :path: Flutter
-  flutter_appcenter_bundle:
-    :path: ".symlinks/plugins/flutter_appcenter_bundle/ios"
   phone_number:
     :path: ".symlinks/plugins/phone_number/ios"
   shared_preferences:
@@ -196,7 +178,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sms_autofill/ios"
 
 SPEC CHECKSUMS:
-  AppCenter: 0487be185c038ed2ecc5ed38219af1dcd280af23
   Firebase: 73c3e3b216ec1ecbc54d2ffdd4670c65c749edb1
   firebase_analytics: 63c9b821662e558ae4b9920d0dab237a27f434cc
   firebase_auth: df06751eb6e66686f6f2af4f2d36c9c381b26ed0
@@ -209,7 +190,6 @@ SPEC CHECKSUMS:
   FirebaseCrashlytics: 69cddb6bfa7656c5346e603bc85b029392252ee6
   FirebaseInstallations: 7f31798a8198c354eadcb87176d2090b62edc187
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  flutter_appcenter_bundle: e8cb9428b85abc67bec226ce30d00f819dde9c55
   GoogleAppMeasurement: c6bbc9753d046b5456dd4f940057fbad2c28419e
   GoogleDataTransport: 11e3a5f2c190327df1a4a5d7e7ae3d4d5b9c9e4c
   GoogleUtilities: f8a43108b38a68eebe8b3540e1f4f2d28843ce20

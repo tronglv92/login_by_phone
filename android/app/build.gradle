@@ -89,7 +89,6 @@ android {
         targetSdkVersion 30
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
-//        versionCode System.getenv('APPCENTER_BUILD_ID').toInteger()
         versionName flutterVersionName
     }
     signingConfigs {
