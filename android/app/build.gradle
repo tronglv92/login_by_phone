@@ -47,7 +47,14 @@ if (keystorePropertiesFile.exists()) {
     if (env['BITRISEIO_ANDROID_KEYSTORE_URL']) keystoreProperties.put('storeFile', "my_keystore.jks")
     else keystoreProperties.put('storeFile', storeFileDefault)
 
+    def keystorePropertiesFileUrl = file(env['HOME']+"/git/login_by_phone");
+    if (keystorePropertiesFileUrl.exists()) {
+        println "file /git/login_by_phone exist"
 
+    }
+    else {
+        println "file /git/login_by_phone not exist"
+    }
     println "keystoreProperties['storeFile'] "+keystoreProperties['storeFile'];
 }
 
